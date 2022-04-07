@@ -1,7 +1,7 @@
 //Global Variables
-
-//Displays current day of the week and day of the month
 var now = moment();
+
+//Displays current day of the week and day of the month in jumbotron
 $("#currentDay").text(now.format("dddd, MMMM Do"));
 
 //Check current hour and compare to hour blocks
@@ -20,10 +20,20 @@ function setHour () {
     };
 };
 
-setHour ();
-
-//Check time to set correct past/present/future colors
+function saveEvent() {
+    var saveHour = this.id[4]
+    console.log(saveHour)
+}
 
 //Grab info from form when save button is pressed
 //Set info from form to local.storage
 //display local.storage text onto page
+
+//Listeners and initializations
+
+for (let i=1; i<10; i++) {
+    var curHour = document.getElementById("save" + i)
+    curHour.addEventListener("click", saveEvent)
+}
+
+setHour ();
